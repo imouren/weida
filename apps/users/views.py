@@ -13,6 +13,7 @@ def index(request):
     return render_to_response('users/index.html',data,context_instance=RequestContext(request))
 
 def user_logout(request):
+    return render_to_response('users/login.html',{},context_instance=RequestContext(request))
     if request.user.is_authenticated():
         logout(request)
 
@@ -27,7 +28,7 @@ def user_login(request):
         redirect_url = request.GET.get('next')
         if not redirect_url:redirect_url='/'
         data['next'] = redirect_url
-        return render_to_response('users/index.html',data,context_instance=RequestContext(request))
+        return render_to_response('users/login.html',data,context_instance=RequestContext(request))
     else:
         form = AuthenticationForm(data=request.POST)
         redirect_url = request.POST.get('next', '/')
