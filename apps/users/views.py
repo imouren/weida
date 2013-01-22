@@ -13,14 +13,13 @@ def index(request):
     return render_to_response('users/index.html',data,context_instance=RequestContext(request))
 
 def user_logout(request):
-    return render_to_response('users/login.html',{},context_instance=RequestContext(request))
     if request.user.is_authenticated():
         logout(request)
 
     hr = HttpResponseRedirect('/')
     return hr
 
-def user_login(request):
+def ulogin(request):
     data = {'media_url':settings.MEDIA_URL}
     if request.method == 'GET':
         reg_form = RegForm(initial={'inviter_email':request.GET.get('i')})

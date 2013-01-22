@@ -2,9 +2,9 @@
 from django.conf.urls.defaults import *
 
 urlpatterns = patterns('apps.users.views',
-    (r'^$', 'user_login'),
+    (r'^$', 'ulogin'),
     (r'^logout/$', 'user_logout'),
-    (r'^login/$', 'user_login'),
+    (r'^login/$', 'ulogin'),
     (r'^register/$', 'register'),
 )
         
