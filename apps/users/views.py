@@ -8,6 +8,9 @@ from django.utils import simplejson
 from apps.users.helper import *
 from apps.users.cache import *
 
+def index(request):
+    data = {}
+    return render_to_response('users/index.html',data,context_instance=RequestContext(request))
 
 def user_logout(request):
     if request.user.is_authenticated():
@@ -24,7 +27,7 @@ def user_login(request):
         redirect_url = request.GET.get('next')
         if not redirect_url:redirect_url='/'
         data['next'] = redirect_url
-        return render_to_response('users/index.html',data,context_instance=RequestContext(request))
+        return render_to_response('users/login.html',data,context_instance=RequestContext(request))
     else:
         form = AuthenticationForm(data=request.POST)
         redirect_url = request.POST.get('next', '/')
@@ -46,7 +49,7 @@ def user_login(request):
             err_info = u"用户名密码错误"
             data['err_info'] = err_info
             data['next'] = redirect_url
-            return render_to_response('users/index.html',data,
+            return render_to_response('users/login.html',data,
                                   context_instance=RequestContext(request))
 
 def register(request):
@@ -82,7 +85,7 @@ def register(request):
         data['reg_form'] = form
         data['errors'] = dict(form.errors.items())
         data['next'] = redirect_url
-        return render_to_response('users/index.html', data,
+        return render_to_response('users/register.html', data,
                                   context_instance=RequestContext(request))
 
 

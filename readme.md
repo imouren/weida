@@ -21,9 +21,9 @@
 # git add README
 # git commit -m 'first commit'
 定义远程服务器别名origin
-#  git remote add origin git@github.com:xxx/new-project.git   
+*  git remote add origin git@github.com:xxx/new-project.git   
 本地和远程合并，本地默认分支为master
-# git push origin master  
+* git push origin master  
 
 GitHub网站上就可以看见了， http://github.com/xxx/new-project
 

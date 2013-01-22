@@ -3,6 +3,6 @@
 import cPickle
 import sys
 from django.core.cache import cache
-from apps.models import *
+from apps.users.models import *
 
 
