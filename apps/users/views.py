@@ -59,15 +59,16 @@ def user_login(request):
                                   context_instance=RequestContext(request))
 
 def register(request):
+    data = {'media_url':settings.MEDIA_URL}
     if request.session.has_key('come_from'):
         come_from = request.session['come_from']
     else:
         come_from = ''
 
     if request.method == "GET":
-        return HttpResponseRedirect('/users/login/')
+        return render_to_response('users/register.html', data,
+                                  context_instance=RequestContext(request))
     form = RegForm(request.POST)
-    data = {'media_url':settings.MEDIA_URL}
 
     redirect_url = request.POST.get('next', '/')
     if form.is_valid():
