@@ -46,7 +46,6 @@ def user_login(request):
             username = form.cleaned_data.get("username", "")
             password_str = form.cleaned_data.get("password", "")
             user = authenticate(username=username, password=password_str)
-            regip = get_client_ip(request)
             
             login(request, user)
             request.session.set_expiry(3600*12)
