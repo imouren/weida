@@ -46,5 +46,6 @@ def send_weibo(request):
     u_weibo = get_or_create_user_weibo(uid)
     client = get_weibo_client()
     client.set_access_token(u_weibo.access_token, u_weibo.expires_in)
-    client.statuses.update.post(status='test')
+    info = 'test'+ time.time()
+    client.statuses.update.post(status=info)
     return HttpResponse('ok')
