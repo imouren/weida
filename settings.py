@@ -94,5 +94,9 @@ EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 25
 
+LOGIN_URL = '/users/login/'
+LOGOUT_URL = '/users/logout/'
+
+
 
 
