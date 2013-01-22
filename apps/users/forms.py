@@ -37,7 +37,7 @@ class RegForm(forms.Form):
     def clean_nickname(self):
         nickname = self.cleaned_data["nickname"]
         GM_re = re.compile(r'^GM\d+',re.IGNORECASE)
-        if re.match(GM_re, nickname) or isWordByFilted(nickname):
+        if re.match(GM_re, nickname):
             raise forms.ValidationError('非法昵称')
         if len(nickname)>10:
             raise forms.ValidationError('昵称应小于10个字符')
