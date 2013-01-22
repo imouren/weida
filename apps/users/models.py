@@ -42,3 +42,6 @@ class UserProfile(models.Model):
         key = CACHE_USER % self.uid
         cache.set(key,self)
 
+    class Meta:
+        db_table = 'wd_userprofile'
+
