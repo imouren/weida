@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 
 from django.conf import settings
-from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
-from django.template import RequestContext
+from django.template import RequestContext, Context
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import AuthenticationForm,PasswordChangeForm
 from django.utils import simplejson
 from apps.users.helper import *
 from apps.users.cache import *
