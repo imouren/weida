@@ -304,3 +304,12 @@ class _Callable(object):
         return '_Callable (%s)' % self._name
 
     __repr__ = __str__
+
+
+APP_KEY = '558826333'
+APP_SECRET = '12282638c935e02b1b303407c44274d6'
+CALLBACK_URL = 'http://weibo.enjoygames.cn/weibo/callback/'
+
+def get_weibo_client():
+    client = APIClient(app_key=APP_KEY, app_secret=APP_SECRET, redirect_uri=CALLBACK_URL)
+    return client

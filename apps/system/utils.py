@@ -22,3 +22,8 @@ def get_salt(n=6):
     samples = string.letters + string.digits
     salt = "".join(random.sample(samples, n))
     return salt
+
+def readable_time(t=time.time(), format='%Y-%m-%d %H:%M:%S'):
+    gmt = time.localtime(t)
+    res = time.strftime(format, gmt)
+    return res

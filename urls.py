@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     
     (r'^$','apps.users.views.index'),
     (r'^users/',include('apps.users.urls')),
+    (r'^weibo/',include('apps.weibo.urls')),
 )
 
 
