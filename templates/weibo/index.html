@@ -16,12 +16,13 @@
 
 <div class="well">
 
-weibo 云云
+weibo xxx<br/>
 
 {% if need_authorize %}
 <a class="btn btn-primary btn-large" href="/weibo/authorize/" target="_self">获取token</a>
 {% else %}
-<a class="btn btn-primary btn-large" href="/weibo/send_weibo/" target="_blank">发微博</a>
+已经获得token  到期时间{{%end_time%}}<a class="btn btn-primary btn-large" href="/weibo/send_weibo/" target="_blank">发微博</a>
+<a class="btn btn-primary btn-large" href="/weibo/authorize/" target="_self">重新获取token</a>
 {% endif %}
 </div>
 
