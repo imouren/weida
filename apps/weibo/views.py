@@ -27,7 +27,7 @@ def index(request):
 
 @login_required
 def authorize_weibo(request):
-    client = get_weibo_clien()
+    client = get_weibo_client()
     url = client.get_authorize_url()
     return HttpResponseRedirect(url)
 
@@ -35,7 +35,7 @@ def authorize_weibo(request):
 def callback(request):
     code = request.GET.get('code')
     uid = request.user.id
-    client = get_weibo_clien()
+    client = get_weibo_client()
     r = client.request_access_token(code)
     u_weibo = update_user_weibo(uid, access_token, expires_in)
     return HttpResponseRedirect('/weibo/')
@@ -44,7 +44,7 @@ def callback(request):
 def send_weibo(request):
     uid = request.user.id
     u_weibo = get_or_create_user_weibo(uid)
-    client = get_weibo_clien()
+    client = get_weibo_client()
     client.set_access_token(u_weibo.access_token, u_weibo.expires_in)
     client.statuses.update.post(status='test')
     return HttpResponse('ok')
