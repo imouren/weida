@@ -12,7 +12,7 @@ ADMINS = (
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.mysq:l',
         'NAME': 'weida',
         'USER': 'root',
         'PASSWORD': 'mourenmouren',
@@ -75,7 +75,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.admin',
-    #'django.contrib.flatpages',
+    'django.contrib.flatpages',
     'apps',
 )
 
