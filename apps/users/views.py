@@ -79,7 +79,7 @@ def register(request):
         user.set_password(form.cleaned_data['password1'])
         user.save()
 
-        profile = UserProfile(user_id=user.id, nickname=form.cleaned_data['nickname'],
+        profile = UserProfile(uid=user.id, nickname=form.cleaned_data['nickname'],
                               true_name=form.cleaned_data['true_name'],
                               come_from = come_from,
                               identity_card_code=form.cleaned_data['identity_card_code'])
