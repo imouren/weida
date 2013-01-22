@@ -39,7 +39,7 @@
 <div class="controls">
 <div class="input-prepend">
 <span class="add-on"><i class="icon-user"></i></span>
-<input ref_method="register_validate_nickname" type="text" autocomplete="off" name="nickname" value="">
+<input ref_method="register_validate_nickname" type="text" autocomplete="off" name="username" value="">
 </div>
 <span class="help-inline"></span>
 </div>
@@ -49,7 +49,7 @@
 <div class="controls">
 <div class="input-prepend">
 <span class="add-on"><i class="icon-asterisk"></i></span>
-<input type="password" ref_method="register_validate_pwd" autocomplete="off" name="password" value="">
+<input type="password" ref_method="register_validate_pwd" autocomplete="off" name="password1" value="">
 </div>
 <span class="help-inline"></span>
 </div>
@@ -59,7 +59,7 @@
 <div class="controls">
 <div class="input-prepend">
 <span class="add-on"><i class="icon-asterisk"></i></span>
-<input type="password" name="re_password" autocomplete="off" ref_method="register_validate_repassword" value="">
+<input type="password" name="password2" autocomplete="off" ref_method="register_validate_repassword" value="">
 </div>
 <span class="help-inline"></span>
 </div>
@@ -77,72 +77,6 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="http://www.enjoygames.cn/bootstrap.min.js"></script>
-<script>
-$(function() {
-    $('#register input').blur(function(event) {
-        var target = $(event.target);
-        var $group = target.parents('div .control-group');
-        var $help = target.parents('.controls').children('.help-inline');
-
-        var method = target.attr("ref_method");
-        var value = target.val();
-        $group.removeClass('error');
-        $group.removeClass('success');
-        $help.text('');
-
-        if ( value == "" ) {
-            $group.addClass('error');
-            $help.text('不能为空。');
-            return false;
-        }
-
-        if ( method == "register_validate_repassword" ) {
-            var pwd = $('#register #register_pwd input').attr('value');
-            if ( value != pwd ) {
-                $group.addClass('error');
-                $help.text('两次输入的密码不一致。');
-                return false;
-            }
-            else {
-                return true;
-            }
-        }
-
-        var url = [
-            '/reflect/',
-            method,
-            '/e30=/',
-            encodeURIComponent(value)
-        ];
-        url = url.join('');
-
-        $.getJSON( url, function(data) {
-            if ( 1 == data['code'] ) {
-                $group.addClass('success');
-                $help.text('OK!');
-            }else if ( 0 == data['code'] ) {
-                $group.addClass('error');
-                $help.text(data.err_msg);
-            }
-        });
-
-    });
-
-    $('#register').submit(function(){
-        $error = $('#register .error');
-        var success = $('#register .success');
-        if( $error.length > 0 || success.length < 1 ){
-            alert('您输入的内容不正确，请检查后提交。');
-            return false;
-        }
-        return true;
-    });
-
-});
-
-
-
-</script>
 
 
 </body>
