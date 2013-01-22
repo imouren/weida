@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
@@ -12,6 +13,10 @@ from apps.users.forms import *
 def index(request):
     data = {}
     return render_to_response('users/index.html',data,context_instance=RequestContext(request))
+
+@login_required
+def home(request):
+    return HttpResponse('home')
 
 def user_logout(request):
     if request.user.is_authenticated():
