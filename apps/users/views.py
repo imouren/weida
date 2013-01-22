@@ -7,6 +7,7 @@ from django.template import RequestContext
 from django.utils import simplejson
 from apps.users.helper import *
 from apps.users.cache import *
+from apps.users.forms import *
 
 def index(request):
     data = {}
@@ -19,7 +20,7 @@ def user_logout(request):
     hr = HttpResponseRedirect('/')
     return hr
 
-def ulogin(request):
+def user_login(request):
     data = {'media_url':settings.MEDIA_URL}
     if request.method == 'GET':
         reg_form = RegForm(initial={'inviter_email':request.GET.get('i')})
