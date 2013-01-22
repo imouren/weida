@@ -77,6 +77,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     #'django.contrib.flatpages',
     'apps.users',
+    'apps.weibo',
 )
 
 CACHES = {
