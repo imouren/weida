@@ -17,6 +17,7 @@ class RegForm(forms.Form):
     nickname = forms.CharField(label="Nick name",
                 widget=forms.TextInput(attrs={'class':'txt','value':'请输入昵称','title':'请输入昵称','style':" width:250px;"}))
     true_name = forms.CharField(label="True name", required=False)
+    come_from = forms.CharField(label="Come from", required=False)
     identity_card_code = forms.CharField(label="Card code", required=False)
     inviter_email = forms.CharField(required=False, widget=forms.HiddenInput)
 
