@@ -37,7 +37,7 @@ def callback(request):
     uid = request.user.id
     client = get_weibo_client()
     r = client.request_access_token(code)
-    u_weibo = update_user_weibo(uid, access_token, expires_in)
+    u_weibo = update_user_weibo(uid, r.access_token, r.expires_in)
     return HttpResponseRedirect('/weibo/')
 
 @login_required
