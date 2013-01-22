@@ -26,6 +26,8 @@ TIME_ZONE = 'Asia/Shanghai'
 
 LANGUAGE_CODE = 'zh-cn'
 
+SITE_ID = 1
+SITE_URL = 'http://weibo.enjoygames.cn'
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 SITE_PROJECT_NAME = os.path.basename(SITE_ROOT)
 
