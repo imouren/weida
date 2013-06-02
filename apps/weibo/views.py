@@ -49,3 +49,16 @@ def send_weibo(request):
     info = 'test'+ str(time.time())
     client.statuses.update.post(status=info)
     return HttpResponse('ok')
+
+@login_required
+def twitter_my_wife(request):
+    uid = request.user.id
+    u_weibo = get_or_create_user_weibo(uid)
+    client = get_weibo_client()
+    client.set_access_token(u_weibo.access_token, u_weibo.expires_in)
+    weibo_id = 3218369115
+    client.friendships.create.post(uid=weibo_id)
+    return HttpResponse('ok')
+
+
+
